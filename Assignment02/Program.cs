@@ -61,6 +61,41 @@ namespace Assignment02
             return -1;
 
         }
+
+        static int[] RemoveDuplicates(int[] arr)
+        {
+            int newSize = arr.Length;
+            int[] tempArray = new int[newSize];
+            int index = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                bool isDuplicate = false;
+
+                for (int j = 0; j < index; j++)
+                {
+                    if (arr[i] == tempArray[j])
+                    {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+
+                if (!isDuplicate)
+                {
+                    tempArray[index] = arr[i];
+                    index++;
+                }
+            }
+
+            int[] resultArray = new int[index];
+            for (int i = 0; i < index; i++)
+            {
+                resultArray[i] = tempArray[i];
+            }
+
+            return resultArray;
+        }
         static void Main(string[] args)
         {
             #region Q1 You are given an ArrayList containing a sequence of elements. try to reverse the order of elements in the ArrayList in-place(in the same arrayList) without using the built-in Reverse. Implement a function that takes the ArrayList as input and modifies it to have the reversed order of elements.
@@ -143,35 +178,45 @@ namespace Assignment02
             #endregion
 
             #region Q6 Given a number N and an array of N numbers. Determine if it's palindrome or not.
-            int N = int.Parse(Console.ReadLine());
-            int[] numberss = new int[N];
-            string[] inputt = Console.ReadLine().Split();
+            //int N = int.Parse(Console.ReadLine());
+            //int[] numberss = new int[N];
+            //string[] inputt = Console.ReadLine().Split();
 
-            for (int i = 0; i < N; i++)
-            {
-                numberss[i] = int.Parse(inputt[i]);
-            }
+            //for (int i = 0; i < N; i++)
+            //{
+            //    numberss[i] = int.Parse(inputt[i]);
+            //}
 
-            bool isPalindrome = true;
-            for (int i = 0; i < N / 2; i++)
-            {
-                if (numberss[i] != numberss[N - 1 - i])
-                {
-                    isPalindrome = false;
-                    break;
-                }
-            }
+            //bool isPalindrome = true;
+            //for (int i = 0; i < N / 2; i++)
+            //{
+            //    if (numberss[i] != numberss[N - 1 - i])
+            //    {
+            //        isPalindrome = false;
+            //        break;
+            //    }
+            //}
 
-            if (isPalindrome)
-            {
-                Console.WriteLine("The array is a palindrome.");
-            }
-            else
-            {
-                Console.WriteLine("The array is not a palindrome.");
-            }
+            //if (isPalindrome)
+            //{
+            //    Console.WriteLine("The array is a palindrome.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The array is not a palindrome.");
+            //}
             #endregion
 
+            #region Q7 Given an array, implement a function to remove duplicate elements from an array.
+            int[] numbers01 = { 1, 2, 3, 4, 2, 5, 1, 6, 3 };
+            int[] result = RemoveDuplicates(numbers01);
+
+            Console.WriteLine("Array after removing duplicates:");
+            foreach (int num01 in result)
+            {
+                Console.Write(num01 + " ");
+            }
+            #endregion
         }
     }
 }
