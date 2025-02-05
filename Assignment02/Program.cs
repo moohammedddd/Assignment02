@@ -45,12 +45,33 @@ namespace Assignment02
             #endregion
 
             #region Q2 You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
-            List <int> Even = new List<int> { 1, 2, 3, 4, 5 }; List<int> NewEven = EvenNUmber(Even);
-            foreach (var item in NewEven)
-            {
-                Console.WriteLine(item);
-            }
+            //List <int> Even = new List<int> { 1, 2, 3, 4, 5 }; List<int> NewEven = EvenNUmber(Even);
+            //foreach (var item in NewEven)
+            //{
+            //    Console.WriteLine(item);
+            //}
             #endregion
+
+            #region Q3 implement a custom list called FixedSizeList<T> with a predetermined capacity. This list should not allow more elements than its capacity and should provide clear messages if one tries to exceed it or access invalid indices.
+            Console.WriteLine("--------------Q3------------------");
+            FixedSizeList<int> fixedSizeList = new FixedSizeList<int>(5);
+
+            fixedSizeList.Add(1);
+            fixedSizeList.Add(2);
+            fixedSizeList.Add(4);
+            fixedSizeList.Add(5);
+            //fixedSizeList.Add(6);
+            //fixedSizeList.Add(7);
+            //fixedSizeList.Add(8);
+            for (int i = 0; i < fixedSizeList.item.Count; i++)
+            {
+                Console.WriteLine(fixedSizeList.item[i]);
+            }
+            Console.WriteLine($" the value index 4 is {fixedSizeList.Get(2)}");
+            #endregion
+
+
+
         }
     }
 }
