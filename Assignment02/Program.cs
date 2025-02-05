@@ -96,6 +96,21 @@ namespace Assignment02
 
             return resultArray;
         }
+
+        public static void RemoveOdd(ref List<int> odd)
+        {
+
+            for (int i = 0; i < odd.Count; i++)
+            {
+                if (odd[i] % 2 != 0)
+                {
+                    odd.RemoveAt(i);
+                    i--;
+                }
+            }
+
+        }
+
         static void Main(string[] args)
         {
             #region Q1 You are given an ArrayList containing a sequence of elements. try to reverse the order of elements in the ArrayList in-place(in the same arrayList) without using the built-in Reverse. Implement a function that takes the ArrayList as input and modifies it to have the reversed order of elements.
@@ -208,13 +223,23 @@ namespace Assignment02
             #endregion
 
             #region Q7 Given an array, implement a function to remove duplicate elements from an array.
-            int[] numbers01 = { 1, 2, 3, 4, 2, 5, 1, 6, 3 };
-            int[] result = RemoveDuplicates(numbers01);
+            //int[] numbers01 = { 1, 2, 3, 4, 2, 5, 1, 6, 3 };
+            //int[] result = RemoveDuplicates(numbers01);
 
-            Console.WriteLine("Array after removing duplicates:");
-            foreach (int num01 in result)
+            //Console.WriteLine("Array after removing duplicates:");
+            //foreach (int num01 in result)
+            //{
+            //    Console.Write(num01 + " ");
+            //}
+            #endregion
+
+            #region Q8  Given an array list , implement a function to remove all odd numbers from it.
+            Console.WriteLine("Q8");
+            List<int> odd = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            RemoveOdd(ref odd);
+            foreach (int item in odd)
             {
-                Console.Write(num01 + " ");
+                Console.WriteLine(item);
             }
             #endregion
         }
