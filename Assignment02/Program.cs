@@ -33,6 +33,34 @@ namespace Assignment02
             }
             return NewEven;
         }
+
+        public static int FirstUnicqChar(string s)
+        {
+            Dictionary<char, int> charCount = new Dictionary<char, int>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (charCount.ContainsKey(s[i]))
+                {
+                    charCount[s[i]]++;
+                }
+                else
+                {
+                    charCount[s[i]] = 1;
+                }
+            }
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (charCount[s[i]] == 1)
+                {
+                    return i;
+                }
+
+            }
+            return -1;
+
+        }
         static void Main(string[] args)
         {
             #region Q1 You are given an ArrayList containing a sequence of elements. try to reverse the order of elements in the ArrayList in-place(in the same arrayList) without using the built-in Reverse. Implement a function that takes the ArrayList as input and modifies it to have the reversed order of elements.
@@ -53,24 +81,28 @@ namespace Assignment02
             #endregion
 
             #region Q3 implement a custom list called FixedSizeList<T> with a predetermined capacity. This list should not allow more elements than its capacity and should provide clear messages if one tries to exceed it or access invalid indices.
-            Console.WriteLine("--------------Q3------------------");
-            FixedSizeList<int> fixedSizeList = new FixedSizeList<int>(5);
+            //Console.WriteLine("--------------Q3------------------");
+            //FixedSizeList<int> fixedSizeList = new FixedSizeList<int>(5);
 
-            fixedSizeList.Add(1);
-            fixedSizeList.Add(2);
-            fixedSizeList.Add(4);
-            fixedSizeList.Add(5);
-            //fixedSizeList.Add(6);
-            //fixedSizeList.Add(7);
-            //fixedSizeList.Add(8);
-            for (int i = 0; i < fixedSizeList.item.Count; i++)
-            {
-                Console.WriteLine(fixedSizeList.item[i]);
-            }
-            Console.WriteLine($" the value index 4 is {fixedSizeList.Get(2)}");
+            //fixedSizeList.Add(1);
+            //fixedSizeList.Add(2);
+            //fixedSizeList.Add(4);
+            //fixedSizeList.Add(5);
+            ////fixedSizeList.Add(6);
+            ////fixedSizeList.Add(7);
+            ////fixedSizeList.Add(8);
+            //for (int i = 0; i < fixedSizeList.item.Count; i++)
+            //{
+            //    Console.WriteLine(fixedSizeList.item[i]);
+            //}
+            //Console.WriteLine($" the value index 4 is {fixedSizeList.Get(2)}");
             #endregion
 
-
+            #region Q4 Given a string, find the first non-repeated character in it and return its index. If there is no such character, return -1. Hint you can use dictionary
+            string input = "swiss";
+            int indexx = FirstUnicqChar(input);
+            Console.WriteLine($"The first unique character is at index: {indexx}");
+            #endregion
 
         }
     }
