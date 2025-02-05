@@ -105,44 +105,72 @@ namespace Assignment02
             #endregion
 
             #region Q5 Given an array  consists of  numbers with size N and number of queries, in each query you will be given an integer X, and you should print how many numbers in array that is greater than  X.
-            string[] inputs = Console.ReadLine().Split();
-            int arraySize = int.Parse(inputs[0]);
-            int querySize = int.Parse(inputs[1]);
+            //string[] inputs = Console.ReadLine().Split();
+            //int arraySize = int.Parse(inputs[0]);
+            //int querySize = int.Parse(inputs[1]);
 
-            List<int> numbers = new List<int>();
-            string[] arrayInput = Console.ReadLine().Split();
-            for (int i = 0; i < arraySize; i++)
-            {
-                numbers.Add(int.Parse(arrayInput[i]));
-            }
+            //List<int> numbers = new List<int>();
+            //string[] arrayInput = Console.ReadLine().Split();
+            //for (int i = 0; i < arraySize; i++)
+            //{
+            //    numbers.Add(int.Parse(arrayInput[i]));
+            //}
 
-            int[] queries = new int[querySize];
-            for (int i = 0; i < querySize; i++)
-            {
-                queries[i] = int.Parse(Console.ReadLine());
-            }
+            //int[] queries = new int[querySize];
+            //for (int i = 0; i < querySize; i++)
+            //{
+            //    queries[i] = int.Parse(Console.ReadLine());
+            //}
 
-            for (int i = 0; i < querySize; i++)
-            {
-                int numm = queries[i];
-                int count = 0;
+            //for (int i = 0; i < querySize; i++)
+            //{
+            //    int numm = queries[i];
+            //    int count = 0;
 
-                for (int j = 0; j < numbers.Count; j++)
-                {
-                    if (numbers[j] > numm)
-                    {
-                        count++;
-                    }
-                }
+            //    for (int j = 0; j < numbers.Count; j++)
+            //    {
+            //        if (numbers[j] > numm)
+            //        {
+            //            count++;
+            //        }
+            //    }
 
-                Console.WriteLine($" {count}");
-            }
+            //    Console.WriteLine($" {count}");
+            //}
 
 
-            
+
             #endregion
 
+            #region Q6 Given a number N and an array of N numbers. Determine if it's palindrome or not.
+            int N = int.Parse(Console.ReadLine());
+            int[] numberss = new int[N];
+            string[] inputt = Console.ReadLine().Split();
 
+            for (int i = 0; i < N; i++)
+            {
+                numberss[i] = int.Parse(inputt[i]);
+            }
+
+            bool isPalindrome = true;
+            for (int i = 0; i < N / 2; i++)
+            {
+                if (numberss[i] != numberss[N - 1 - i])
+                {
+                    isPalindrome = false;
+                    break;
+                }
+            }
+
+            if (isPalindrome)
+            {
+                Console.WriteLine("The array is a palindrome.");
+            }
+            else
+            {
+                Console.WriteLine("The array is not a palindrome.");
+            }
+            #endregion
 
         }
     }
