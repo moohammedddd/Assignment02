@@ -99,10 +99,50 @@ namespace Assignment02
             #endregion
 
             #region Q4 Given a string, find the first non-repeated character in it and return its index. If there is no such character, return -1. Hint you can use dictionary
-            string input = "swiss";
-            int indexx = FirstUnicqChar(input);
-            Console.WriteLine($"The first unique character is at index: {indexx}");
+            //string input = "swiss";
+            //int indexx = FirstUnicqChar(input);
+            //Console.WriteLine($"The first unique character is at index: {indexx}");
             #endregion
+
+            #region Q5 Given an array  consists of  numbers with size N and number of queries, in each query you will be given an integer X, and you should print how many numbers in array that is greater than  X.
+            string[] inputs = Console.ReadLine().Split();
+            int arraySize = int.Parse(inputs[0]);
+            int querySize = int.Parse(inputs[1]);
+
+            List<int> numbers = new List<int>();
+            string[] arrayInput = Console.ReadLine().Split();
+            for (int i = 0; i < arraySize; i++)
+            {
+                numbers.Add(int.Parse(arrayInput[i]));
+            }
+
+            int[] queries = new int[querySize];
+            for (int i = 0; i < querySize; i++)
+            {
+                queries[i] = int.Parse(Console.ReadLine());
+            }
+
+            for (int i = 0; i < querySize; i++)
+            {
+                int numm = queries[i];
+                int count = 0;
+
+                for (int j = 0; j < numbers.Count; j++)
+                {
+                    if (numbers[j] > numm)
+                    {
+                        count++;
+                    }
+                }
+
+                Console.WriteLine($" {count}");
+            }
+
+
+            
+            #endregion
+
+
 
         }
     }
